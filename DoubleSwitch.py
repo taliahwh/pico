@@ -19,6 +19,13 @@ button = machine.Pin(11, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 counter = 0
 
+def turn_off_lights():
+  red_led.value(0)
+  yellow_led.value(0)
+  green_led.value(0)
+  blue_led.value(0)
+
+
 # loop reads button
 while True:
   if button.value() == 1:
@@ -30,33 +37,28 @@ while True:
     if counter == 4:
       counter = 0
 
-
     if counter == 1:
+      turn_off_lights()
       red_led.value(0)
-      yellow_led.value(0)
-      green_led.value(0)
-      blue_led.value(0)
+      
 
     elif counter == 2:
-       red_led.value(0)
+       turn_off_lights()
        yellow_led.value(1)
-       green_led.value(0)
-       blue_led.value(0)
+      
 
     elif counter == 3:
-       red_led.value(0)
-       yellow_led.value(0)
+       turn_off_lights()
        green_led.value(1)
-       blue_led.value(0)
+       
     
     else:
-       red_led.value(0)
-       yellow_led.value(0)
-       green_led.value(0)
+       turn_off_lights()
        blue_led.value(1)
 
+
     
-    utime.sleep(1)
+    utime.sleep(2)
 
  
   
